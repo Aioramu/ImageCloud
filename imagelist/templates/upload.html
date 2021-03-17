@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post" action="{% url 'imagelist:getimage' %}" enctype="multipart/form-data" >
+  {% csrf_token %}
+
+    {{ form.as_p }}
+
+
+    <button type='submit'>Send data</button>
+    <input type="hidden" name="next"
+    value="{% url 'imagelist:index' %}" />
+</form>
+{% endblock %}

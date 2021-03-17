@@ -1,0 +1,14 @@
+
+{% extends "base.html" %}
+{% block content %}
+<form method="post" action="{% url 'imagelist:register' %}">
+  {% csrf_token %}
+
+    {{ form.as_p }}
+
+
+    <button type='submit'>Send data</button>
+    <input type="hidden" name="next"
+    value="{% url 'imagelist:index' %}" />
+</form>
+{% endblock %}
