@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.decorators import login_required
-from .forms import UploadFileForm,UpdateFileForm
+from .forms import UploadFileForm,RegForm
 from .models import ImageList
 from images.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
@@ -14,9 +14,9 @@ def index(request):
 
 def NewUser(request):
     if request.method != 'POST':
-        form = UserCreationForm()
+        form = RegForm()
     else:
-        form = UserCreationForm(data=request.POST)
+        form = RegForm(data=request.POST)
         if form.is_valid():
             new_user = form.save()
             login(request, new_user)
