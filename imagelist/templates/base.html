@@ -1,6 +1,6 @@
 {% if user.is_authenticated %}
 <a href="{% url 'imagelist:getimage' %}">Загрузить картинку</a>
-<a href="{% url 'imagelist:logout' %}">Выйти</a>
+<a href="{% url 'imagelist:log' %}">Выйти</a>
 <a href="{% url 'imagelist:lk' %}">Личный кабинет</a>
  {% else %}
       <a href="{% url 'imagelist:register' %}">Регистрация</a>

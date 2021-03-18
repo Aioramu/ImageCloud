@@ -25,7 +25,7 @@ def NewUser(request):
     return render(request, "register.html",context)
 def logout_view(request):
     logout(request)
-    return render(request,"base.html")
+    return redirect('imagelist:index')
 @login_required
 def upload_file(request):
     if request.method == 'POST':
